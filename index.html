@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand d-flex gap-2 align-items-center" href="#">
+          <img
+            src="./images/logo@2x.png"
+            class=""
+            style="width: 70px; height: 70px; object-fit: contain"
+          />
+          <div class="name-site">
+            <h6 style="color: #fff; margin: 0">Weather</h6>
+            <small style="color: rgb(172 172 172); font-size: 13px"
+              >tagline goes here</small
+            >
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Live Cameras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Photos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="image py-5">
+        <div class="container">
+          <form class="enter-location position-relative">
+            <input
+              type="text"
+              class="form-control py-3 px-4 rounded-5"
+              id="btnSearch"
+              placeholder="Find your location..."
+            />
+            <input
+              type="button"
+              value="Find"
+              id="btnSubmit"
+              class="btn btn-primary position-absolute py-2 px-5 rounded-5"
+            />
+          </form>
+          <div class="alert text-danger text-center d-none" id="alertError">
+            Unkown Location
+          </div>
+        </div>
+      </section>
+      <section class="forcast-table position-relative">
+        <div class="container">
+          <div class="row rounded-3" id="rowData">
+            <div class="col-md-4">
+              <div class="today forcast">
+                <div
+                  class="forcast-head d-flex justify-content-between p-1"
+                  id="todayDate"
+                >
+                  <div class="day" id="dayName"></div>
+                  <div class="date">
+                    <span id="dateNum"></span>
+                    <span id="dateMonth"></span>
+                  </div>
+                </div>
+                <div class="forcast-content p-4">
+                  <div class="location" id="todayLocation"></div>
+                  <div class="degree">
+                    <div class="num display-1 text-white fw-semibold">
+                      <span id="todayTemp"> </span>
+                      <span><sup>o</sup> C</span>
+                    </div>
+                    <div class="img fs-1">
+                      <img src="" id="todayImage" alt="" />
+                    </div>
+                  </div>
+                  <div class="text my-3" id="todayText"></div>
+                  <span class="me-3">
+                    <img
+                      src="./images/icon-umberella@2x.png"
+                      alt=""
+                      class="contentImg"
+                    />
+                    <span id="humidity"></span>
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="./images/icon-wind@2x.png"
+                      alt=""
+                      class="contentImg"
+                    />
+                    <span id="wind"></span>
+                  </span>
+                  <span class="me-3">
+                    <img
+                      src="./images/icon-compass@2x.png"
+                      alt=""
+                      class="contentImg"
+                    />
+                    <span id="windDirection"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- & tomorrow -->
+            <div class="col-md-4 bg">
+              <div class="forcast text-center">
+                <div class="forcast-head p-1">
+                  <div class="day nextDayName" id=""></div>
+                </div>
+                <div class="forcast-content py-5 px-2">
+                  <div class="icons fs-2 mb-3">
+                    <img src="" alt="" class="nextImg" />
+                  </div>
+                  <div class="degree text-white fw-semibold fs-4">
+                    <span class="nextMaxTemp"></span>
+                    <span><sup>o</sup> C</span>
+                  </div>
+                  <small>
+                    <span class="nextMinTemp"></span>
+                    <span><sup>o</sup></span>
+                  </small>
+                  <div class="text nextText mt-4"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="forcast text-center">
+                <div class="forcast-head p-1">
+                  <div class="day nextDayName" id=""></div>
+                </div>
+                <div class="forcast-content py-5 px-2">
+                  <div class="icons fs-2 mb-3">
+                    <img src="" alt="" class="nextImg" />
+                  </div>
+                  <div class="degree text-white fw-semibold fs-4">
+                    <span class="nextMaxTemp"></span>
+                    <span><sup>o</sup> C</span>
+                  </div>
+                  <small>
+                    <span class="nextMinTemp"></span>
+                    <span><sup>o</sup></span>
+                  </small>
+                  <div class="text nextText mt-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
